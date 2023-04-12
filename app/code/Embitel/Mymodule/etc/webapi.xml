@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+<!-- GET method -->
+<route url="/V1/embitel/mymodule" method="GET">
+    <service class="Embitel\Mymodule\Api\DemoInterface" method="getProfile"/>
+    <resources>
+        <resource ref="anonymous"/>
+    </resources>
+</route>
+<!-- POST method -->
+<route url="/V1/embitel/mycustomer" method="POST">
+    <service class="Embitel\Mymodule\Api\DemoInterface" method="setCustomgroup"/>
+    <resources>
+        <resource ref="anonymous"/>
+    </resources>
+</route>
+</routes>

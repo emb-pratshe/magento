@@ -1,0 +1,44 @@
+# Copyright © Magento, Inc. All rights reserved.
+# See COPYING.txt for license details.
+
+# Create graphql query to display the list of 3 users static data.
+type Query
+{
+    customerInfo:customerInfoOutput @resolver(class:"Embitel\\Mymodule\\Model\\Resolver\\store") @doc(description:"List of customer data")
+}
+type customerInfoOutput
+{
+total_count:Int @doc(description:"Total Stores"),
+detailofdata:[customerInfo] @doc(description:"Customer Data")
+}
+
+type customerInfo
+{
+    firstname:String @doc(description:"First Name"),
+   lastname:String @doc(description:"Last name"),
+    email:String @doc(description:"The Email"),
+    telephone:String @doc(description:"The Telephone"),
+    city:String @doc(description:"The City"),
+    state:String @doc(description:"The State"),
+
+    country:String @doc(description:"The Country"),
+
+}
+
+#  Create graphql mutation to create customer group
+
+type Mutation {
+    addInfo (input: InfoInput! @doc(description:"An input you have to fill")):
+    addInfoOutput @resolver(class:"Embitel\\Mymodule\\Model\\Resolver\\statusInfo")
+    @doc (description:"output of mutation")
+}
+
+input InfoInput {
+    groupId:Int! @doc(description:"enter the groupid")
+    groupName:String! @doc(description:"enter the groupName")
+}
+
+type addInfoOutput {
+    groupId:Int @doc(description:"status of mutation")
+    groupName:String @doc(description:"message of mutation")
+}

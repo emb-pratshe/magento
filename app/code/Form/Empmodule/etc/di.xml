@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="afterGetName" type="Form\Empmodule\Plugin\Product" sortOrder="1" />
+    </type>
+
+     <type name="Magento\Checkout\Model\Cart">
+        <plugin name="beforeAddProduct" type="Form\Empmodule\Plugin\Cart" sortOrder="1" />
+    </type>
+    
+</config>
